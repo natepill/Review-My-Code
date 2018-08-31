@@ -8,7 +8,8 @@ app.set('view engine', 'handlebars');
 // OUR MOCK ARRAY OF PROJECTS
 let reviews = [
   { title: "Great Review" },
-  { title: "Next Review" }
+  { title: "Next Review" },
+  { title: "Nathan's Adventure!"}
 ]
 
 // INDEX
