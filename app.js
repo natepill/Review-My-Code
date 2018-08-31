@@ -18,13 +18,26 @@ app.get('/reviews', (req, res) => {
 })
 
 
-// app.get('/', (req, res) => {
-//   res.render('home', { msg: 'Hello World!' });
-// })
 
 app.get('/', (req, res) => {
-  res.render('reviews-index', { reviews: reviews });
+  Review.find()
+    .then(reviews => {
+      res.render('reviews-index', { reviews: reviews });
+    })
+    .catch(err => {
+      console.log(err);
+    })
 })
+
+
+
+
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/rotten-potatoes', { useMongoClient: true });
+
+const Review = mongoose.model('Review', {
+  title: String
+});
 
 
 
