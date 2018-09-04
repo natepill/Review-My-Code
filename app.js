@@ -1,6 +1,13 @@
-const express = require ('express')
-const app = express()
+// const express = require ('express')
+// const app = express()
 var exphbs = require('express-handlebars');
+const express = require('express')
+const methodOverride = require('method-override')
+
+const app = express()
+
+
+app.use(methodOverride('_method'))
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/rotten-potatoes', { useMongoClient: true });
@@ -66,6 +73,15 @@ app.get('/reviews/:id', (req, res) => {
       console.log(err.message);
   })
 })
+
+// EDIT
+app.get('reviews/:id/edit', function (req, res){
+    Review.findById(req.params.id, function(err, review){
+        res.render('reviews-edit', {review: review});
+    })
+})
+
+
 
 
 app.listen(3000, () => {
