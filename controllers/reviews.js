@@ -4,7 +4,8 @@ const Review = require('../models/review')
 
 
 module.exports = function(app) {
-
+    
+    // INDEX
     app.get('/', (req, res) => {
       Review.find()
         .then(reviews => {
@@ -15,18 +16,8 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/', (req, res) => {
-      Review.find()
-        .then(reviews => {
-          res.render('reviews-index', { reviews: reviews });
-        })
-        .catch(err => {
-          console.log(err);
-        })
-    })
 
 
-    // INDEX
     app.get('/reviews', (req, res) => {
       res.render('reviews-index', { reviews: reviews });
     })
