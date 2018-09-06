@@ -1,16 +1,18 @@
-// const express = require ('express')
-// const app = express()
+// import reviews from 'reviews';
+
 var exphbs = require('express-handlebars');
 const express = require('express')
 const methodOverride = require('method-override')
 
 const app = express()
+const reviews = require('./controllers/reviews')
+const reviewFunction= require('./models/review')
+
+reviews(app)
 
 
 app.use(methodOverride('_method'))
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/rotten-potatoes', { useMongoClient: true });
 
 // INITIALIZE BODY-PARSER AND ADD IT TO APP
 const bodyParser = require('body-parser');
@@ -18,22 +20,11 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-const Review = mongoose.model('Review', {
-  title: String,
-  description: String,
-  movieTitle: String,
-  rating: Number
-});
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-// OUR MOCK ARRAY OF PROJECTS
-// let reviews = [
-//   { title: "Great Review" },
-//   { title: "Next Review" },
-//   { title: "Nathan's Adventure!"}
-// ]
+
 
 app.get('/', (req, res) => {
   Review.find()
@@ -91,6 +82,15 @@ app.put('/reviews/:id', (req, res) => {
     .catch(err => {
       console.log(err.message)
     })
+})
+
+app.delete('/reviews/:id', function (req, res) {
+  console.log("DELETE review")
+  Review.findByIdAndRemove(req.params.id).then((review) => {
+    res.redirect('/');
+  }).catch((err) => {
+    console.log(err.message);
+  })
 })
 
 
