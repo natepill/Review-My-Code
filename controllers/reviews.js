@@ -2,6 +2,7 @@
 
 const Review = require('../models/review')
 
+
 module.exports = function(app) {
 
     app.get('/', (req, res) => {
@@ -72,6 +73,8 @@ module.exports = function(app) {
         })
     })
 
+    //DELETE
+
     app.delete('/reviews/:id', function (req, res) {
       console.log("DELETE review")
       Review.findByIdAndRemove(req.params.id).then((review) => {
@@ -80,7 +83,6 @@ module.exports = function(app) {
         console.log(err.message);
       })
     })
-
 
 
 
