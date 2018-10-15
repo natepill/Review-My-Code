@@ -8,9 +8,9 @@ const methodOverride = require('method-override')
 const app = express()
 
 const Comment = require('./models/comment')
-const Review = require('./models/review')
+const Donation = require('./models/donation')
 
-const reviews = require('./controllers/reviews')
+const donations = require('./controllers/donations')
 const comments = require('./controllers/comments')
 
 // INITIALIZE BODY-PARSER AND ADD IT TO APP
@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes
 
 app.use(methodOverride('_method'))
 
-reviews(app)
+donations(app)
 comments(app)
 
 

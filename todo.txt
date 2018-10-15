@@ -1,0 +1,11 @@
+-Make root route the index donations route
+    -Change all "/" routes to "/donations"
+-Change name of Review routes to donations
+-Change Review model to Donation
+    -add amount attribute to Donation resource
+-Make sure we are passing in the right parameters through the call back functions
+-Move reviews-new template to donations index (rename partials and attributes)
+
+-Replace description field with amount
+-Change show template for reviews to Donations and appropriate attributes
+-Change Comments routes to reflect that we are now using the Donation resource instead of Reviews.

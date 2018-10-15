@@ -1,24 +1,24 @@
 
-const Review = require('../models/review');
+const Donation = require('../models/donation');
 const Comment = require('../models/comment');
 
 module.exports = function(app) {
 
     ////// Create comment ///////
-    app.post('/reviews/comments', (req, res) => {
+    app.post('/donations/comments', (req, res) => {
         //res.send('reviews comment');
         Comment.create(req.body).then(comment => {
-            res.redirect(`/reviews/${comment.reviewId}`);
+            res.redirect(`/donations/${comment.donationId}`);
         }).catch((err) => {
             console.log(err.message);
         })
     })
 
         // DELETE
-    app.delete('/reviews/comments/:id', function (req, res) {
+    app.delete('/donations/comments/:id', function (req, res) {
       console.log("DELETE comment")
       Comment.findByIdAndRemove(req.params.id).then((comment) => {
-        res.redirect(`/reviews/${comment.reviewId}`);
+        res.redirect(`/donations/${comment.donationId}`);
       }).catch((err) => {
         console.log(err.message);
       })

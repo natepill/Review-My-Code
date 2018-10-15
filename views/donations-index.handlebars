@@ -1,0 +1,29 @@
+<!-- views/reviews-index.handlebars -->
+
+<h1>Donations</h1>
+
+<a href="/donations/new">New Donation</a>
+
+<div class="row">
+    <div class= "col-sm-6 col-sm-offset-3">
+        <form method="POST" action="/donations">
+
+        {{> donations-form}}
+            <div class= "form-group">
+                <button class= "btn btn-primary" type="submit">Save Donation</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+  {{#each donations}}
+    <div class="col-sm-3">
+      <h2><a href="/donations/{{this._id}}">{{this.title}}</a></h2>
+      <small>{{this.title}}</small>
+    </div>
+  {{/each}}
+</div>
