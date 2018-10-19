@@ -1,6 +1,6 @@
-// const mongoose = require('mongoose');
-//
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes', {useNewUrlParser: true});
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes', {useNewUrlParser: true});
 
 // var dateTime = require('node-datetime');
 // var dt = dateTime.create();
