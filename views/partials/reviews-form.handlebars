@@ -1,24 +1,84 @@
 <!-- views/partials/reviews-form.handlebars -->
 
 <fieldset>
-  <legend>Edit Review</legend>
+  <legend>Upload Your Project</legend>
   <!-- TITLE -->
   <div class= "form-group">
     <label for="review-title">Title</label><br>
     <input id="review-title" type="text" name="title" value="{{review.title}}"/>
   </div>
 
-  <!-- MOVIE TITLE -->
-  <div class= "form-group">
+  <!-- GitHub Repository -->
 
-    <label for="movie-title">Movie Title</label><br>
-    <input id="movie-title" type="text" name="movieTitle" value="{{review.movieTitle}}" />
+<!-- TODO Need to rename Movie Title to Github Repo across the project -->
+
+  <div class= "form-group">
+    <label for="github-repo">Link to GitHub Repository</label><br>
+    <input id="github-repo" type="text" name="gitRepo" value="{{review.gitRepo}}" />
   </div>
+
+
+<!-- TODO Need to create Short-description across the project -->
+
+  <div class= "form-group">
+    <label for="short-description">Description</label><br>
+
+    <textarea id="description" name="description" rows="3" />{{review.description}}</textarea>
+  </div>
+
 
   <!-- DESCRIPTION -->
   <div class= "form-group">
-    <label for="review-description">Description</label><br>
-    <textarea id="review-description" name="description" rows="10" />{{review.description}}</textarea>
+    <label for="code-review">Code Review</label><br>
+    <textarea id="code-review" name="codeReview" rows="10" cols= "30" />{{review.codeReview}}</textarea>
   </div>
+
+
+  <!-- RATING -->
+ <div class="form-group">
+     <label for="category">Category</label>
+     <select class="form-control" id="category" name="category">
+   {{#select category.rating}}
+   <option value="Language-Specific">Language Specific</option>
+   <option value="Design">Design</option>
+   <option value="Code-Architecture">Code Architecture</option>
+   <option value="Algorithms-Data-Structures">Algorithms/Data Structures</option>
+   <option value="Emerging-Technology">Emerging Technology</option>
+   {{/select}}
+</select>
+ </div>
+
+<!--
+<label for="category">What Category Does Your Project Fall Under?</label><br>
+  <select>
+  <option value="volvo">Language Specific</option>
+  <option value="saab">Architecture</option>
+  <option value="mercedes">Design</option>
+  <option value="audi">Algorithms/Data Structures</option>
+  <option value="audi">Emerging Technology</option>
+</select> <br><br> -->
+
+<!-- TODO: add the ability to add tags to project cards to enable search functionality, would have to add "tags" to model? Can a model have a list of strings attribute? -->
+
+  <!-- TODO Change from Rating to Category-Id, need each project to have a category id in their model-->
+  <!-- RATING -->
+
+<!-- Category and Date Forms are modeled after Edwin's RP project in the following repo-->
+<!-- https://github.com/edwintcloud/Rotten-Potatoes-Tutorial/blob/master/views/partials/reviews-form.handlebars -->
+
+
+
+  <!-- DATE -->
+<input type="hidden" name="date" id="todayDate"/>
+<script type="text/javascript">
+function getDate()
+{
+    var today = new Date();
+    document.getElementById("todayDate").value = today;
+}
+getDate();
+</script>
+
+
 
 </fieldset>

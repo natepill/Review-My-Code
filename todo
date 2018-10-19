@@ -1,0 +1,37 @@
+ROUTING
+Need to add /:category to all appropriate routes
+
+
+
+
+
+
+Upload --> Form Page:
+
+    Timestamp
+    Submit button <POST to /{{category-tag}}/posts>
+
+
+
+
+
+/{{category-tag/posts}}
+    Formats through handlebars template into CodeReviewCard
+    CodeReviewCard with Title, short code description, Timestamp, learn more (read), edit(update), delete
+
+    CodeReviewCard Edit
+        Show route to form, but with previous data there (look at RP)
+
+    CodeReviewCard DELETE
+        Delete entire CodeReviewCard
+
+    CodeReviewCard LearnMore:
+        Show page to /{{category-tag/posts/:id}}
+        Handlebars template renders link to Github repo, and code review.
+        Comment button <Second resource> at the bottom
+        Comment button show route to create comment form
+
+
+
+How to create an interface like Medium
+Create a Medium clone?

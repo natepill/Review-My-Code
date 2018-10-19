@@ -13,6 +13,11 @@ const Review = require('./models/review')
 const reviews = require('./controllers/reviews')
 const comments = require('./controllers/comments')
 
+const Handlebars = require('handlebars');
+const HandlebarsIntl = require('handlebars-intl');
+
+
+
 // INITIALIZE BODY-PARSER AND ADD IT TO APP
 const bodyParser = require('body-parser');
 
@@ -21,6 +26,25 @@ app.use(bodyParser.urlencoded({extended: true}));
 const port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+
+
+// HANDLEBARS HELPERS
+Handlebars.registerHelper("select", function(value, options) {
+    return options.fn(this)
+        .split('\n')
+        .map(function(v) {
+            var t = 'value="' + value + '"'
+            return !RegExp(t).test(v) ? v : v.replace(t, t + ' selected="selected"')
+        })
+        .join('\n')
+});
+
+
+var dateTime = require('node-datetime');
+var dt = dateTime.create();
+var formatted = dt.format('Y-m-d H:M:S');
+
+
 
 app.use(methodOverride('_method'))
 

@@ -2,8 +2,17 @@
 const Comment = require('../models/comment');
 const Review = require('../models/review');
 
+
 module.exports = function(app) {
-    // INDEX - OUR FIRST MONGODB QUERY WITH A MONGOOSE MODEL
+
+//TODO: FINISH HOMEPAGE
+// Navbar buttons(Languages (drop down), Design, Architecture, Algorithms/Data structures, Trending, Upload)
+// Upload button is a show route GET method to a "form page"
+// Each of the buttons are show routes to /{{category-tag/posts}}
+// Carousel of articles w/ images of tech literature
+// About & How to
+
+
     app.get('/', (req, res) => {
         Review.find()
             .then(reviews => {
@@ -21,8 +30,12 @@ module.exports = function(app) {
         res.render('reviews-new', {});
     })
 
+
+
     // CREATE - USING FORM DATA TO CREATE AREVIEW
-    app.post('/reviews', (req, res) => {
+
+    //TODO POST TO /REVIEWS/:Category
+    app.post('/reviews/', (req, res) => {
         Review.create(req.body).then((review) => {
             console.log(review)
             res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id

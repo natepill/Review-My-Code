@@ -1,15 +1,34 @@
 <!-- views/reviews-index.handlebars -->
 
-<h1>Reviews</h1>
+<!-- <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head> -->
 
-<a href="/reviews/new">New Review</a>
+<h1>Welcome to Code Review</h1>
+
+<a href="/reviews/new">Upload a project or article</a>
+
+
+
+<!-- <div class="card">
+  <h5 class="card-header"><h2><a href="/reviews/{{this._id}}">{{this.title}}</a></h2></h5>
+  <div class="card-body">
+    <h5 class="card-title"> {{this.gitRepo}} </h5>
+    <p class="card-text">{{this.description}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div> -->
+
 
 
 <div class="row">
   {{#each reviews}}
-    <div class="col-sm-3">
-      <h2><a href="/reviews/{{this._id}}">{{this.title}}</a></h2>
-      <small>{{this.movieTitle}}</small>
-    </div>
+
+  <div class="col-sm-3">
+    <h2><a href="/reviews/{{this._id}}">{{this.title}}</a></h2>
+    <small>{{this.description}}</small>
+    <small><a href = "{{this.gitRepo}}">{{this.gitRepo}}</a></small><br>
+    <small>{{this.date}}</small>
+  </div>
+
+
   {{/each}}
 </div>
