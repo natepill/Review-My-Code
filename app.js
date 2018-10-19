@@ -2,6 +2,10 @@
 // import comments from 'comments';
 
 var exphbs = require('express-handlebars')
+
+var mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+
 const express = require('express')
 const methodOverride = require('method-override')
 
@@ -24,8 +28,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 const port = process.env.PORT || 3000;
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+
+
+
 
 
 // HANDLEBARS HELPERS
