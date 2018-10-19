@@ -8,7 +8,7 @@ module.exports = function(app) {
 //TODO: FINISH HOMEPAGE
 // Navbar buttons(Languages (drop down), Design, Architecture, Algorithms/Data structures, Trending, Upload)
 // Upload button is a show route GET method to a "form page"
-// Each of the buttons are show routes to /{{category-tag/posts}} 
+// Each of the buttons are show routes to /{{category-tag/posts}}
 // Carousel of articles w/ images of tech literature
 // About & How to
 
@@ -94,7 +94,7 @@ module.exports = function(app) {
     app.delete('/reviews/:id', function(req, res) {
         console.log("DELETE review")
         Review.findByIdAndRemove(req.params.id).then((review) => {
-            res.redirect('/');
+            res.redirect('/category/:category/');
         }).catch((err) => {
             console.log(err.message);
         })
