@@ -8,7 +8,7 @@ module.exports = function(app) {
 //TODO: FINISH HOMEPAGE
 // Navbar buttons(Languages (drop down), Design, Architecture, Algorithms/Data structures, Trending, Upload)
 // Upload button is a show route GET method to a "form page"
-// Each of the buttons are show routes to /{{category-tag/posts}}
+// Each of the buttons are show routes to /{{category-tag/posts}} 
 // Carousel of articles w/ images of tech literature
 // About & How to
 
@@ -27,7 +27,7 @@ module.exports = function(app) {
 
     // NEW
     app.get('/reviews/new', (req, res) => {
-        res.render('reviews-new', {});
+        res.render('reviews-new', {});``
     })
 
 

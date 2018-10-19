@@ -20,16 +20,12 @@ const comments = require('./controllers/comments')
 const Handlebars = require('handlebars');
 const HandlebarsIntl = require('handlebars-intl');
 
-
-
 // INITIALIZE BODY-PARSER AND ADD IT TO APP
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 const port = process.env.PORT || 3000;
-
-
 
 
 
