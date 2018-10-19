@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.get('/', (req, res) => {
         Review.find()
             .then(reviews => {
-                res.render('reviews-index', {
+                res.render('home-page', {
                     reviews: reviews
                 });
             })
@@ -35,13 +35,22 @@ module.exports = function(app) {
     // CREATE - USING FORM DATA TO CREATE AREVIEW
 
     //TODO POST TO /REVIEWS/:Category
-    app.post('/reviews/', (req, res) => {
+    app.post('/reviews', (req, res) => {
         Review.create(req.body).then((review) => {
             console.log(review)
             res.redirect(`/reviews/${review._id}`) // Redirect to reviews/:id
         }).catch((err) => {
             console.log(err.message)
         })
+    })
+
+
+    app.get('/category/:category', (req, res) => {
+        Review.find({category: req.params.category}).then(reviews =>{
+
+            res.render('reviews-index', {reviews: reviews})
+
+        }).catch(console.error)
     })
 
     // app.post('/reviews/:id', (req, res) => {

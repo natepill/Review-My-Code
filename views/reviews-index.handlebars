@@ -4,22 +4,47 @@
 
 <h1>Welcome to Code Review</h1>
 
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
 <a href="/reviews/new">Upload a project or article</a>
 
 
 
-<!-- <div class="card">
-  <h5 class="card-header"><h2><a href="/reviews/{{this._id}}">{{this.title}}</a></h2></h5>
-  <div class="card-body">
-    <h5 class="card-title"> {{this.gitRepo}} </h5>
-    <p class="card-text">{{this.description}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div> -->
-
-
 
 <div class="row">
+  {{#each reviews}}
+
+
+
+  <div class="card text-center">
+    <div class="card-header">
+      Featured
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
+      <p class="card-text">{{this.description}}</p>
+      <p class="card-text"><small>{{this.gitRepo}}</small></p>
+      <a href="/reviews/{{this._id}}" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="card-footer text-muted">
+      Posted: {{this.date}}
+    </div>
+  </div>
+
+
+
+  {{/each}}
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+
+<!-- <div class="row">
   {{#each reviews}}
 
   <div class="col-sm-3">
@@ -31,4 +56,4 @@
 
 
   {{/each}}
-</div>
+</div> -->
